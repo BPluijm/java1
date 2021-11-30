@@ -1,6 +1,8 @@
 package nl.novi.jp.methods.junior;
 
 
+import java.sql.SQLOutput;
+
 /**
  * Deze klasse bevat al de methode met de naam greetName. Deze methode ontvangt ook een input-parameter. Deze
  * input-parameter moet van het datatype String zijn en we noemen deze name binnen de methode.
@@ -20,6 +22,6 @@ public class JuniorOne {
     }
 
     public static void sayGoodbyeToName(String name) {
-        // write your code here
+        System.out.println("Goodbye " + name);
     }
 }

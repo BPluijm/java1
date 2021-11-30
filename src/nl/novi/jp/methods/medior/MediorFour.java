@@ -25,6 +25,9 @@ public class MediorFour {
     public static void main(String[] args) {
 
         List<Integer> result = numberStringToArrayList("123123145");
+        List<String> resultWords = numberListToStringList(result);
+
+        printNumbers(resultWords);
 
     }
 
@@ -37,43 +40,44 @@ public class MediorFour {
         return numberList;
     }
 
-    //TODO: Maak deze methode af.
     public static List<String> numberListToStringList(List<Integer> numbers) {
         List<String> wordNumbers = new ArrayList<>();
+
+        for(int number : numbers)  {
+            wordNumbers.add(numberToWord(number));
+        }
 
         return wordNumbers;
     }
 
     public static String numberToWord(int number) {
-        switch(number) {
-            case 0:
-                return "zero";
-            case 1:
-                return "one";
-            case 2:
-                return "two";
-            case 3:
-                return "three";
-            case 4:
-                return "four";
-            case 5:
-                return "five";
-            case 6:
-                return "six";
-            case 7:
-                return "seven";
-            case 8:
-                return "eight";
-            case 9:
-                return "nine";
-            default:
-                return "Unknown number";
+        return switch (number) {
+            case 0 -> "zero";
+            case 1 -> "one";
+            case 2 -> "two";
+            case 3 -> "three";
+            case 4 -> "four";
+            case 5 -> "five";
+            case 6 -> "six";
+            case 7 -> "seven";
+            case 8 -> "eight";
+            case 9 -> "nine";
+            default -> "Unknown number";
+        };
+    }
+
+    public static void printNumbers(List<String> numberWords) {
+        int arraySize = numberWords.size();
+        String finalString = "";
+
+        for (int i = 0; i < numberWords.size(); i++) {
+            finalString = finalString + numberWords.get(i);
+
+            // Only add an hyphen when it is not the last one!
+            if(i + 1 != arraySize) {
+                finalString = finalString + "-";
+            }
         }
+        System.out.println(finalString);
     }
-
-    //TODO Maak deze methode af.
-    public static void printNumbers() {
-
-    }
-
 }
